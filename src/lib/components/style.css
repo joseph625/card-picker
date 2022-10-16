@@ -1,0 +1,156 @@
+:root {
+    --main-height-slider: 350px;
+    --border-radius-slide: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #81a69b;
+}
+
+/* Slider file */
+.test {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+
+.slider_test>div {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 22;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider_test .slide {
+    position: absolute;
+    margin: auto;
+    border-radius: var(--border-radius-slide);
+    width: 75%;
+    height: var(--main-height-slider);
+    transition: z-index 0.7s, width .5s, height .5s;
+    z-index: 10;
+    overflow: hidden;
+}
+
+
+.slider_test .active {
+    width: 100%;
+    height: calc(var(--main-height-slider) - 100px);
+    z-index: 20;
+    transition: z-index 0.7s, width .5s, height .5s
+}
+
+.slider_test .active_prev {
+    width: 100%;
+    height: calc(var(--main-height-slider) - 100px);
+    z-index: 20;
+    animation-name: slide-rotate-back;
+    animation-duration: 0.5s;
+    animation-delay: 0.5;
+}
+
+.slider_test .prev {
+    animation: slide-rotate .5s;
+}
+
+.slider_test :where(.prev, .next_slide, .hide) {
+    filter: brightness(0.4) blur(3px);
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
+}
+
+.slider_test .next_slide {
+    z-index: 15;
+    width: 75%;
+    height: var(--main-height-slider);
+
+}
+
+@keyframes slide-rotate {
+    0% {
+        transform: translateY(0px) rotateX(0deg);
+    }
+
+    50% {
+        transform: translateY(calc(var(--main-height-slider) - 100px)) rotateX(90deg);
+    }
+}
+
+@keyframes slide-rotate-back {
+    0% {
+        transform: translateY(0px) rotateX(0deg);
+    }
+
+    50% {
+        transform: translateY(calc(var(--main-height-slider) - 100px)) rotateX(90deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotateX(0deg);
+    }
+
+}
+
+
+/* btns */
+.prev_btn,
+.next_btn {
+    position: absolute;
+    bottom: -70px;
+    z-index: 30;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+.prev_btn {
+    right: 50px;
+}
+
+.next_btn {
+    right: 0px;
+}
+
+.next_btn svg {
+    fill: black;
+    /* animation: down 2s linear infinite; */
+}
+
+@keyframes down {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+
+}
+
+.prev_btn svg {
+    fill: black;
+    /* animation: up 2s linear infinite; */
+    transform: rotate(180deg);
+}
+
+@keyframes up {
+    0% {
+        transform: rotate(180deg) translateY(5px);
+    }
+
+    50% {
+        transform: rotate(180deg) translateY(0px);
+    }
+
+    100% {
+        transform: rotate(180deg) translateY(5px);
+    }
+
+}
