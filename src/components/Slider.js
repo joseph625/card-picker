@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect } from "react";
-
+import "./style.css";
 /**
  * It takes a height and borderRadius as props, and then uses the useEffect hook to set the height and
  * borderRadius as CSS variables. It then hides all the slides, and shows the first two slides.

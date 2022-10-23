@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import Slider from "./lib/components/Slider";
+import Slider from "./components/Slider";
 const App = () => {
   const option = {
     height: "100%",

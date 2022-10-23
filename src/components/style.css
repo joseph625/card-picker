@@ -46,7 +46,6 @@ h1 {
     font-size: 50px;
 }
 
-
 .slider_test .active {
     width: 100%;
     height: calc(var(--main-height-slider) - 100px);
