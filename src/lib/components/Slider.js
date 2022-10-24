@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./style.css";
+import "./style/main.css";
 function Slider(props) {
   const {
     infinity,

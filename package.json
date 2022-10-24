@@ -1,39 +1,45 @@
 {
   "name": "@yousif-jasim/card-picker",
-  "version": "1.0.2",
+  "version": "1.0.7",
   "description": "Card Picker",
-  "main": "Slider.js",
+  "source": "package/index.js",
+  "main": "package/index.js",
+  "files": [
+    "package/",
+    "README.md"
+  ],
   "scripts": {
     "dev": "parcel src/index.html",
-    "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "format:check": "prettier --check \"src/**/*.{js,jsx}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "build": "parcel build src/lib"
+    "sass:compiler": "node-sass --watch src/main.scss -o src/lib/components/style --output-style compressed",
+    "build": "parcel build src/lib/main.js"
   },
   "keywords": [
     "react",
     "Slider",
     "Component"
   ],
-  "author": "Yousif Jasm",
+  "author": {
+    "name": "Yousif Jasm",
+    "email": "yjasm8959@gmail.com",
+    "url": "https://www.yousifjasm.me/"
+  },
   "private": false,
-  "files": [
-    "src/components"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joseph625/card-picker.git"
   },
-  "license": "ISC",
+  "licenses": [
+    {
+    "type":"MIT",
+    "url": "https://github.com/joseph625/card-picker/blob/main/LICENSE"
+  }
+],
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.16.7",
-    "eslint": "^8.26.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-react": "^7.31.10",
-    "parcel": "^2.3.2",
-    "prettier": "^2.7.1"
+    "@babel/preset-react": "^7.18.6",
+    "node-sass": "^7.0.3",
+    "parcel": "^2.7.0",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^17.0.2",
