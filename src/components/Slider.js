@@ -1,23 +1,5 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect } from "react";
 import "./style.css";
-/**
- * It takes a height and borderRadius as props, and then uses the useEffect hook to set the height and
- * borderRadius as CSS variables. It then hides all the slides, and shows the first two slides.
- *
- * The next function is the hideAll function. It takes a count as arguments, and then
- * loops through all the slides and hides them.
- *
- * The show function takes a count, and a direction as arguments. It then hides all the
- * slides, and then checks if the current slide is the first slide. If it is, it sets the last slide as
- * the previous slide. If the current slide is the last slide, it sets the first slide as the next
- * slide. It then checks if the current slide has a next sibling, and if it does, it sets it as the
- * next slide. Finally, it sets the current slide as the active slide.
- *
- * The prev
- * @param props - {
- * @returns A React component.
- */
 function Slider(props) {
   const {
     infinity,
@@ -28,8 +10,6 @@ function Slider(props) {
   } = props;
   let currentSlide = 1;
 
-  /* Setting the height and borderRadius as CSS variables. It then hides all the slides, and shows the
-first two slides. */
   useEffect(() => {
     let root = document.documentElement;
     root.style.setProperty("--main-height-slider", height);
@@ -78,7 +58,6 @@ first two slides. */
       slide.children[currentSlide - 1].className = "active_prev slide";
     }
   }
-
   function prevAction(count) {
     if (currentSlide <= 1 && infinity != "false" && infinity != false) {
       currentSlide = count;
@@ -88,7 +67,6 @@ first two slides. */
     }
     show(count, "prev");
   }
-
   function nextAction(count) {
     if (currentSlide >= count && infinity != "false" && infinity != false) {
       currentSlide = 1;
@@ -98,7 +76,6 @@ first two slides. */
     }
     show(count, "next");
   }
-
   function wheel(e) {
     const count =
       document.getElementById("main_slider").children[1].childElementCount;
@@ -108,7 +85,6 @@ first two slides. */
       nextAction(count);
     }
   }
-
   let mouseDown = null;
   let mouseUp = null;
   function leftRightClick(e, type) {
@@ -130,7 +106,6 @@ first two slides. */
       }
     }
   }
-
   function clickOnArrows(action) {
     const count =
       document.getElementById("main_slider").children[1].childElementCount;
@@ -146,9 +121,7 @@ first two slides. */
       }, timeout);
     };
   }
-
   const wheelForMouse = debounce((e) => wheel(e));
-
   return (
     <section className="test">
       <div
@@ -201,5 +174,4 @@ first two slides. */
     </section>
   );
 }
-
 export default Slider;
