@@ -1,5 +1,4 @@
 import React from "react"; 
-// import { Slider } from "./lib/index";
 import {Slider} from 'card-picker'
 const App = () => {
   const option = {
@@ -19,7 +18,7 @@ const App = () => {
         <div style={{ backgroundColor: "pink" }}>
           <h1>3</h1>
         </div>
-        <div style={{ backgroundColor: "white" }}>
+        <div style={{ backgroundColor: "blueviolet" }}>
           <h1>4</h1>
         </div>
         <div style={{ backgroundColor: "red" }}>
@@ -34,30 +33,6 @@ const App = () => {
         <div style={{ backgroundColor: "yellowgreen" }}>
           <h1>8</h1>
         </div>
-        {/* <div style={{ backgroundColor: "orange" }}>
-          <img src="https://picsum.photos/200/300?random=101" alt="" />
-        </div>
-        <div style={{ backgroundColor: "gray" }}>
-          <img src="https://picsum.photos/200/300?random=11" alt="" />
-        </div>
-        <div style={{ backgroundColor: "white" }}>
-          <img src="https://picsum.photos/200/300?random=3" alt="" />
-        </div>
-        <div style={{ backgroundColor: "black" }}>
-          <img src="https://picsum.photos/200/300?random=5" alt="" />
-        </div>
-        <div style={{ backgroundColor: "red" }}>
-          <img src="https://picsum.photos/200/300?random=10" alt="" />
-        </div>
-        <div style={{ backgroundColor: "pink" }}>
-          <img src="https://picsum.photos/200/300?random=101" alt="" />
-        </div>
-        <div style={{ backgroundColor: "yellow" }}>
-          <img src="https://picsum.photos/200/300?random=4" alt="" />
-        </div>
-        <div style={{ backgroundColor: "yellowgreen" }}>
-          <img src="https://picsum.photos/200/300?random=4" alt="" />
-        </div> */}
       </Slider>
     </div>
   );
