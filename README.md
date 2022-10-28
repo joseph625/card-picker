@@ -19,6 +19,8 @@ The smooth and pretty slider you can use this package for making your website un
 
 
 # preview
+[Example code](https://codesandbox.io/s/card-picker-demo-7yh6lb?file=/src/App.js)
+
 <img src="https://raw.githubusercontent.com/joseph625/card-picker/main/readme.gif" />
 
 > Simple and awesome 😎
