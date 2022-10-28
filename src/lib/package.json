@@ -1,0 +1,37 @@
+{
+  "name": "card-picker",
+  "version": "2.0.10",
+  "description": "Best awesome library for slider",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "slider",
+    "awesome",
+    "slider",
+    "react",
+    "next"
+  ],
+  "author": {
+    "name": "Yousif Jasm",
+    "email": "yjasm8959@gmail.com",
+    "url": "https://www.yousifjasm.me/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joseph625/card-picker.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/joseph625/card-picker/blob/main/LICENSE"
+    }
+  ],
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "homepage": "https://github.com/joseph625/card-picker#readme"
+}

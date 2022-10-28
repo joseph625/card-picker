@@ -1,6 +1,6 @@
-import React from "react";
-import { render } from "react-dom";
-import { Slider } from "./lib/main";
+import React from "react"; 
+// import { Slider } from "./lib/index";
+import {Slider} from 'card-picker'
 const App = () => {
   const option = {
     height: "100%",
@@ -8,7 +8,7 @@ const App = () => {
     borderRadius: "30px",
   };
   return (
-    <div style={{ height: "1000px" }}>
+    <div style={{ height: "500px" }}> 
       <Slider {...option}>
         <div style={{ backgroundColor: "orange" }}>
           <h1>1</h1>
@@ -62,4 +62,5 @@ const App = () => {
     </div>
   );
 };
-render(React.createElement(App), document.getElementById("root"));
+
+export default App

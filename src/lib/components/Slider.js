@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import "./style/main.css";
+import React, { useEffect } from 'react';
+import './style/main.css';
+
 function Slider(props) {
   const {
-    infinity,
-    height,
+    infinity = false,
+    height = '100%',
     borderRadius = 0,
     previousButton,
     nextButton,
@@ -11,90 +12,109 @@ function Slider(props) {
   let currentSlide = 1;
 
   useEffect(() => {
-    let root = document.documentElement;
-    root.style.setProperty("--main-height-slider", height);
-    root.style.setProperty("--border-radius-slide", borderRadius);
-    const slide = document.getElementById("main_slider").children[1];
-    hideAll(slide.childElementCount, "main_slider");
-    slide.children[0].className = "active slide";
-    slide.children[1].className = "next_slide slide";
+    const root = document.documentElement;
+    root.style.setProperty('--main-height-slider', height);
+    root.style.setProperty('--border-radius-slide', borderRadius);
+    const slide = document.getElementById('main_slider').children[1];
+    hideAll(slide.childElementCount, 'main_slider');
+    if (slide.children) {
+      slide.children[0].className = 'active slide';
+    }
+    if (slide.children[1]) {
+      slide.children[1].className = 'next_slide slide';
+    }
   }, []);
 
   function hideAll(count) {
     for (let i = 1; i <= count; i += 1) {
-      const slide =
-        document.getElementById("main_slider").children[1].children[i - 1];
-      slide.className = "hide slide";
+      const slide = document.getElementById('main_slider').children[1].children[i - 1];
+      slide.className = 'hide slide';
     }
   }
 
   function show(count, direction) {
     hideAll(count);
-    const slide = document.getElementById("main_slider").children[1];
+    const slide = document.getElementById('main_slider').children[1];
     const currSlide = slide.children[currentSlide - 2];
     if (currentSlide == 1) {
       // when come to last child, after scroll comeback to first child
       const last = slide.children[count - 1];
-      last.className = "prev slide";
+      last.className = 'prev slide';
     }
 
     if (currentSlide == count) {
       const first = slide.children[0];
-      first.className = "next_slide slide";
+      first.className = 'next_slide slide';
     }
 
-    if (currSlide && direction == "next") {
-      currSlide.className = "prev slide";
+    if (currSlide && direction == 'next') {
+      currSlide.className = 'prev slide';
     }
 
     if (slide.children[currentSlide - 1].nextSibling != null) {
-      slide.children[currentSlide - 1].nextSibling.className =
-        "next_slide slide";
+      slide.children[currentSlide - 1].nextSibling.className = 'next_slide slide';
     }
 
-    if (direction == "next") {
-      slide.children[currentSlide - 1].className = "active slide";
+    if (direction == 'next') {
+      slide.children[currentSlide - 1].className = 'active slide';
     } else {
-      slide.children[currentSlide - 1].className = "active_prev slide";
+      slide.children[currentSlide - 1].className = 'active_prev slide';
     }
   }
   function prevAction(count) {
-    if (currentSlide <= 1 && infinity != "false" && infinity != false) {
+    if (currentSlide <= 1 && infinity != 'false' && infinity != false) {
       currentSlide = count;
     } else if (currentSlide != 1) {
       // check if infiniti =flase
       currentSlide -= 1;
     }
-    show(count, "prev");
+    show(count, 'prev');
   }
   function nextAction(count) {
-    if (currentSlide >= count && infinity != "false" && infinity != false) {
+    if (currentSlide >= count && infinity != 'false' && infinity != false) {
       currentSlide = 1;
     } else if (count != currentSlide) {
       // check if infiniti = flase
       currentSlide += 1;
     }
-    show(count, "next");
+    show(count, 'next');
   }
+
+  function debounce(func, timeout = 50) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        func.apply(this, args);
+      }, timeout);
+    };
+  }
+
+  const wheelForMouse = debounce(
+    (e) => {
+      const count = document.getElementById('main_slider').children[1].childElementCount;
+      if (e.deltaY < 0) {
+        prevAction(count);
+      } else {
+        nextAction(count);
+      }
+    },
+  );
+
   function wheel(e) {
-    const count =
-      document.getElementById("main_slider").children[1].childElementCount;
-    if (e.deltaY < 0) {
-      prevAction(count);
-    } else {
-      nextAction(count);
-    }
+    e.persist();
+    wheelForMouse(e);
   }
+
   let mouseDown = null;
   let mouseUp = null;
   function leftRightClick(e, type) {
-    const count =
-      document.getElementById("main_slider").children[1].childElementCount;
-    if (type == "mousedown") {
+    const count = document.getElementById('main_slider').children[1].childElementCount;
+    if (type == 'mousedown') {
       mouseDown = e.clientY;
       mouseUp = 0;
     }
-    if (type == "mouseup") {
+    if (type == 'mouseup') {
       mouseUp = e.clientY;
     }
 
@@ -107,27 +127,16 @@ function Slider(props) {
     }
   }
   function clickOnArrows(action) {
-    const count =
-      document.getElementById("main_slider").children[1].childElementCount;
-    action(count, "main_slider");
+    const count = document.getElementById('main_slider').children[1].childElementCount;
+    action(count, 'main_slider');
   }
 
-  function debounce(func, timeout = 50) {
-    let timer;
-    return (...args) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        func.apply(this, args);
-      }, timeout);
-    };
-  }
-  const wheelForMouse = debounce((e) => wheel(e));
   return (
-    <section className="test">
+    <section className="card_picker">
       <div
         id="main_slider"
-        className="slider_test"
-        onWheel={wheelForMouse}
+        className="slider_card_picker"
+        onWheel={(e) => wheel(e)}
         onMouseDown={(e) => leftRightClick(e, e.type)}
         onMouseUp={(e) => leftRightClick(e, e.type)}
       >
@@ -137,7 +146,7 @@ function Slider(props) {
               dangerouslySetInnerHTML={{
                 __html: previousButton,
               }}
-            ></div>
+            />
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +166,7 @@ function Slider(props) {
               dangerouslySetInnerHTML={{
                 __html: nextButton,
               }}
-            ></div>
+            />
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
