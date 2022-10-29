@@ -36,7 +36,7 @@ function Slider(props) {
     hideAll(count);
     const slide = document.getElementById('main_slider').children[1];
     const currSlide = slide.children[currentSlide - 2];
-    if (currentSlide == 1) {
+    if (currentSlide == 1 && direction=='next') {
       // when come to last child, after scroll comeback to first child
       const last = slide.children[count - 1];
       last.className = 'prev slide';

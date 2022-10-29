@@ -1,5 +1,6 @@
 import React from "react"; 
-import {Slider} from 'card-picker'
+// import {Slider} from 'card-picker'
+import {Slider} from './lib/index'
 const App = () => {
   const option = {
     height: "100%",

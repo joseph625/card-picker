@@ -3,6 +3,12 @@
     --border-radius-slide: 0;
 }
 
+
+h1 {
+    font-size: 50px;
+}
+
+
 /* Slider file */
 .card_picker {
     height: 100%;
@@ -32,10 +38,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-h1 {
-    font-size: 50px;
 }
 
 .slider_card_picker .active {
@@ -113,6 +115,11 @@ h1 {
 
 .next_btn {
     right: 0px;
+}
+
+:is(.prev_btn, .next_btn) img {
+    height: 30px;
+    width: 30px;
 }
 
 .next_btn svg {
