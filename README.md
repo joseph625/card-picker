@@ -42,7 +42,7 @@ $ npm install --save card-picker --force
 In a React app, use the Slider component:  
 `import { Slider } from 'card-picker'`
 
-### Button props
+### Slider props
 
 | Name         | Description                   | Require
 | -----------  | -----------                   | ---------
